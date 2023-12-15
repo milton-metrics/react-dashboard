@@ -25,7 +25,6 @@ const Sidebar = () => {
 
   return (
     <Box>
-      
     </Box>
   )
 }

@@ -1,5 +1,5 @@
 import { Box, IconButton, useTheme } from "@mui/material"
-import { InputBase } from "@mui/material/InputBase"
+import { InputBase } from '@mui/material';
 import { ColorModeContext, tokens } from "../../theme"
 import { useContext } from "react"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
       {/* Search Bar */}
-      <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="3px">
+      <Box display="flex" backgroundColor={colors.primary[600]} borderRadius="3px">
         <InputBase sx={{ ml: 2, flex:1 }} placeholder="Search" />
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />

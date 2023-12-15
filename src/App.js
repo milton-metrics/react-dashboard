@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 
 import Navbar from "./pages/global/Navbar";
+import Dashboard from "./pages/dashboard";
 // import Sidebar from "./pages/global/Sidebar";
-// import Dashboard from "./pages/dashboard";
 // import Pipeline from "./pages/pipeline"
 // import Team from "./pages/team";
 // import Quotes from "./pages/qoutes"
@@ -23,14 +24,15 @@ function App() {
   const [theme, colorMode] = useMode();
   
   return ( 
-    <ColorModeContext.Provider value={colorMode}>
+      <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
           <main className="content">
             <Navbar />
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
+            <Router> {/* Wrap the Routes component with Router */}
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
               {/* <Route path="/pipeline" element={<Pipeline />} />
               <Route path="/team" element={<Team />} />
               <Route path="/quotes" element={<Quotes />} />
@@ -42,7 +44,8 @@ function App() {
               <Route path="/line" element={<Pie />} />
               <Route path="/geography" element={<Pie />} />
               <Route path="/calendar" element={<Pie />} /> */}
-            </Routes>
+              </Routes>
+            </Router> {/* Close the Router component */}
           </main>
         </div>
       </ThemeProvider>
