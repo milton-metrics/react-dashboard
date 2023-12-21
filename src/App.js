@@ -3,6 +3,7 @@ import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 
+import Sidebar from "./pages/global/Sidebar";
 import Navbar from "./pages/global/Navbar";
 import Dashboard from "./pages/dashboard";
 // import Sidebar from "./pages/global/Sidebar";
@@ -22,14 +23,16 @@ import Dashboard from "./pages/dashboard";
 
 function App() {
   const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
   
   return ( 
       <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
+          <Sidebar isSidebar={isSidebar} />
           <main className="content">
-            <Navbar />
+            <Navbar setIsSidebar={setIsSidebar} />
             <Router> {/* Wrap the Routes component with Router */}
               <Routes>
                 <Route path="/" element={<Dashboard />} />
